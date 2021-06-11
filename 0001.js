@@ -6,7 +6,7 @@ function twoSum (nums, target) {
 
     if (nums.slice(i+1).includes(remain)) {
       first = i;
-      second = nums.indexOf(remain);
+      second = nums.slice(i+1).indexOf(remain) + i + 1;
     }
   })
 
