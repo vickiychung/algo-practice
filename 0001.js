@@ -14,18 +14,20 @@
 // }
 
 function twoSum(nums, target) {
-  let hash = {};
+  let hash = {}, res = [];
 
   nums.forEach((num, i) => {
     let diff = target - num;
 
-    hash[num] = i;
-
-    if (hash[diff] !== undefined) {
-      // return [i, hash[target - num]];
-      return "test"
-    } 
+    if (hash.hasOwnProperty(`${diff}`)) {
+      res.push(i);
+      res.push(hash[diff]);
+    } else {
+      hash[num] = i;
+    }
   })
+
+  return res;
 }
 
 console.log(twoSum([2, 7, 11, 15], 9));
