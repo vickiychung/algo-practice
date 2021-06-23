@@ -1,5 +1,5 @@
 function reverse(x) {
-  if (x === 0 || x < Math.pow(-2, 31) || x > Math.pow(2, 31) - 1) return 0;
+  if (x === 0) return 0;
 
   arr = x.toString().split(""); // ["1", "2", "3"]
   let rev = [];
@@ -8,12 +8,16 @@ function reverse(x) {
     rev.push(arr[i]);
   }
 
-  let str = rev.join("");
+  let result = parseInt(rev.join(""));
 
-  if (x < 0) {
-    return parseInt(str) * (-1);
+  if (x < 0 && (result * (-1)) < Math.pow(-2, 31)) {
+    return 0;
+  } else if (x < 0) {
+    return result * (-1);
+  } else if (result > Math.pow(2, 31) - 1) {
+    return 0;
   } else {
-    return parseInt(str);
+    return result;
   }
 };
 
