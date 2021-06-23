@@ -1,7 +1,7 @@
 function reverse(x) {
   if (x === 0) return 0;
 
-  arr = x.toString().split(""); // ["1", "2", "3"]
+  arr = x.toString().split("");
   let rev = [];
 
   for (let i = arr.length - 1; i >= 0; i--) {
