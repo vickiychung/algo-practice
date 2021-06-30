@@ -9,11 +9,9 @@ function romanToInt(s) {
     let curr = hash[arr[i]];
     let next = hash[arr[i + 1]];
 
-    if (!next) {
+    if (!next || curr >= next) {
       result += curr;
-    } else if (next && curr >= next) {
-      result += curr;
-    } else if (next && curr < next) {
+    } else if (curr < next) {
       result += (next - curr);
       i++;
     }
