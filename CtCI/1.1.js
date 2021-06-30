@@ -15,5 +15,7 @@ function isUnique(str) {
   return res;
 }
 
-console.log(isUnique("notunique"));
-console.log(isUnique("yes"));
+console.log(isUnique("notunique")); // false
+console.log(isUnique("yes")); // true
+console.log(isUnique("cracking")); // false
+console.log(isUnique("coding")); // true
