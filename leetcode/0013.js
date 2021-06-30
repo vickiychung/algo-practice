@@ -13,6 +13,9 @@ function romanToInt(s) {
       result += curr;
     } else if (next && curr >= next) {
       result += curr;
+    } else if (next && curr < next) {
+      result += (next - curr);
+      i++;
     }
   }
 
