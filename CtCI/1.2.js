@@ -13,6 +13,7 @@
 //       count[str2[j]] -= 1;
 //     } else {
 //       res = false;
+//       break;
 //     }
 //   }
 
