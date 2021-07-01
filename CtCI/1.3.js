@@ -17,3 +17,4 @@ function URLify(str, length) {
 }
 
 console.log(URLify("Mr John Smith  ", 13));
+console.log(URLify("Test this one too     ", 17));
