@@ -16,10 +16,6 @@ function zeroMatrix(matrix) {
 
       matrix[r] = newRow;
     }
-
-    // for (let c = 0; c < matrix[0].length; c++) {
-
-    // }
   }
 
   idx.forEach(col => {
