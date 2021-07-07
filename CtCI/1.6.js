@@ -21,11 +21,7 @@ function stringCompression(str) {
 
   compressed += count.toString();
 
-  if (compressed.length === str.length) {
-    return str;
-  } else {
-    return compressed;
-  }
+  return compressed.length === str.length ? str : compressed;
 }
 
 console.log(stringCompression('aabcccccaaa')); // a2b1c5a3
