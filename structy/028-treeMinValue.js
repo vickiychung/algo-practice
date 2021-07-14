@@ -1,3 +1,5 @@
+//BFS apprpoach
+
 const treeMinValue = (root) => {
   let queue = [root];
   let min = root.val;
@@ -10,4 +12,14 @@ const treeMinValue = (root) => {
   }
   
   return min;
+};
+
+//DFS recursive
+const treeMinValue = (root) => {
+  if (!root) return Infinity;
+
+  let leftMin = treeMinValue(root.left);
+  let rightMin = treeMinValue(root.right);
+  
+  return Math.min(root.val, leftMin, rightMin);
 };
