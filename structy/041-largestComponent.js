@@ -19,7 +19,7 @@ const traverse = (graph, src, visited) => {
   let size = 1;
   
   for (let neighbor of graph[src]) {
-    size += traverse(graph, neighbor, visited, size);
+    size += traverse(graph, neighbor, visited);
   }
   
   return size;
