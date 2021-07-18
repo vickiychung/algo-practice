@@ -1,18 +1,17 @@
 const shortestPath = (edges, nodeA, nodeB) => {
   const graph = createGraph(edges);
   let visited = new Set();
-  let stack = [nodeA];
-  let numEdge = 0;
+  let queue = [[nodeA, 0]];
   
-  while (stack.length !== 0) {
-    let curr = stack.pop();
-    visited.add(curr);
-    numEdge += 1;
+  while (queue.length !== 0) {
+    let curr = queue.shift();
+    let numEdge = curr[1] + 1;
+    visited.add(curr[0]);
     
-    if (graph[curr].includes(nodeB)) return numEdge;
+    if (graph[curr[0]].includes(nodeB)) return numEdge;
     
-    graph[curr].forEach(node => {
-      if (!visited.has(node)) stack.push(node);
+    graph[curr[0]].forEach(neighbor => {
+      if (!visited.has(neighbor)) queue.push([neighbor, numEdge]);
     });
   }
   
