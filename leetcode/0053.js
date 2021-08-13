@@ -1,36 +1,14 @@
 var maxSubArray = function(nums) {
   if (nums.length === 1) return nums[0];
   
-  const subs = subArrays(nums);
-  let max = -Infinity;
+  let max = nums[0];
   
-  subs.forEach(sub => {
-    let subSum = sumArr(sub);
-    if (subSum > max) max = subSum;
-  })
+  for (let i = 1; i < nums.length; i++) {
+    let prev = nums[i - 1];
+    
+    nums[i] = Math.max(prev + nums[i], nums[i]);
+    max = Math.max(nums[i], max);
+  }
   
   return max;
 };
-
-function subArrays(arr) {
-  let output = [];
-  
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j <= arr.length; j++) {
-      let subArr = arr.slice(i, j);
-      output.push(subArr);
-    }
-  }
-  
-  return output;
-}
-
-function sumArr(arr) {
-  let sum = 0;
-  
-  arr.forEach(num => {
-    sum += num;
-  })
-  
-  return sum;
-}
