@@ -1,13 +1,14 @@
 function reverseInParentheses(inputString) {
-  let arr = inputString.split('');
+  let closeIdx = inputString.indexOf(')');
   
-  let left = arr.indexOf('(');
-  let right = left + arr.slice(left + 1).indexOf(')') + 1;
-  let subArr = arr.slice(left + 1, right);
+  while (closeIdx !== -1) {
+    let openIdx = inputString.substring(0, closeIdx).lastIndexOf('(');
+    let left = inputString.substring(0, openIdx);
+    let reversed = inputString.substring(openIdx + 1, closeIdx).split('').reverse().join('');
+    let right = inputString.substring(closeIdx + 1);
+    inputString = left + reversed + right;
+    closeIdx = inputString.indexOf(')');
+  }
   
-  arr.splice(left, subArr.length + 2);
-  subArr = subArr.reverse();
-  arr = arr.slice(0, left).concat(subArr).concat(arr.slice(left));
-  
-  return arr.join('');
+  return inputString;
 }
