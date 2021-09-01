@@ -12,13 +12,13 @@ function groupingDishes(dishes) {
   })
   
   let filteredIng = Object.keys(dishIng).filter(key => dishIng[key].length > 1);
-  filteredIng.sort((a, b) => a.localeCompare(b));
+  filteredIng.sort();
   
   let output = [];
   
   filteredIng.forEach(ing => {
     let dishes = dishIng[ing];
-    dishes.sort((a, b) => a.localeCompare(b));
+    dishes.sort();
     
     let subArr = [ing];
     output.push(subArr.concat(dishes));
