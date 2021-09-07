@@ -1,15 +1,12 @@
 function hasDeadlock(connections) {
-  // let connected = true;
+  let visited = [];
   
-  for (let i = 0; i < connections.length; i++) {
-    if (i === connections.length - 1) {
-      if (!connections[i].includes(0)) return false;
-    } else if (!connections[i].includes(i+1)) {
-      // connected = false;
-      return false;
-    }
+  const hasCycle = node => {
+    if (node in visited) return visited[node];
+    
+    visited[node] = true;
+    return visited[node] = connections[node].some(hasCycle);
   }
   
-  // return connected;
-  return true;
+  return connections.some((list, node) => hasCycle(node));
 }
