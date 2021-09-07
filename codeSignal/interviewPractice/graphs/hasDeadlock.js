@@ -1,12 +1,12 @@
 function hasDeadlock(connections) {
   let visited = [];
   
-  const hasCycle = node => {
-    if (node in visited) return visited[node];
+  const hasCycle = idx => {
+    if (idx in visited) return visited[idx];
     
-    visited[node] = true;
-    return visited[node] = connections[node].some(hasCycle);
+    visited[idx] = true;
+    return visited[idx] = connections[idx].some(hasCycle);
   }
   
-  return connections.some((list, node) => hasCycle(node));
+  return connections.some((node, idx) => hasCycle(idx));
 }
